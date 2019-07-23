@@ -8,21 +8,21 @@ public class playerController : MonoBehaviour
     private float speed;
 
     private inputManager inputManager;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         inputManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<inputManager>();
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody>();
+        animator = gameObject.GetComponentInChildren<Animator>();
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
     {
-        transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
+        transform.GetChild(0).LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
 
         if (inputManager.movementDirection.x != 0 || inputManager.movementDirection.y != 0)
         {
