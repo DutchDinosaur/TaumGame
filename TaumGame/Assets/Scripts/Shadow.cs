@@ -15,7 +15,7 @@ public class Shadow : MonoBehaviour
     private float shadowYOffset = -.6f;
     private float distance;
 
-    void Update()
+    void LateUpdate()
     {
         RaycastHit hit;
         Ray ShadowRay = new Ray(new Vector3(TrackingPosition.position.x, TrackingPosition.position.y + shadowYOffset, TrackingPosition.position.z),new Vector3(0,0,1));

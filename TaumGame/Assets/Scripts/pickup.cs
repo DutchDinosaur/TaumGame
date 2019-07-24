@@ -3,9 +3,7 @@
 public class pickup : MonoBehaviour
 {
     public Item item;
-    private SpriteRenderer sprite;
-
-    private bool highlighted = false;
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
@@ -14,23 +12,16 @@ public class pickup : MonoBehaviour
             return;
         }
 
-        sprite = GetComponent<SpriteRenderer>();
-        sprite.sprite = item.icon;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = item.icon;
     }
 
-    private void LateUpdate()
+    public void Highlight(bool b)
     {
-        if (highlighted)
+        if (b)
         {
-            sprite.sprite = item.highlightIcon;
+            spriteRenderer.sprite = item.highlightIcon;
         }
-        else { sprite.sprite = item.icon; }
-
-        highlighted = false;
-    }
-
-    public void Highlight()
-    {
-        highlighted = true;
+        else { spriteRenderer.sprite = item.icon; }
     }
 }
