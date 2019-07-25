@@ -29,5 +29,10 @@ public class inputManager : MonoBehaviour
         {
             interactButton = true;
         } else { interactButton = false; }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.instance.SetGameState(1);
+        }
     }
 }
