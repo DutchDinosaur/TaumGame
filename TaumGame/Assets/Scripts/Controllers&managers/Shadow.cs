@@ -23,6 +23,8 @@ public class Shadow : MonoBehaviour
 
         if (Physics.Raycast(ShadowRay, out hit)){
             distance = hit.distance;
+            Vector3 normal = hit.normal * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(normal.y, -normal.x,0));
         }
 
         transform.position = new Vector3(TrackingPosition.position.x,TrackingPosition.position.y + shadowYOffset, TrackingPosition.position.z + distance + shadowZOffset);

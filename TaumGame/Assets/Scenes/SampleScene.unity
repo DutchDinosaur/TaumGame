@@ -132,12 +132,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9167561243463962418}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &460508406 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5101598834360710748, guid: 630cc89218eb361489b7082ed80dacc0,
-    type: 3}
-  m_PrefabInstance: {fileID: 3344683408922730732}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +261,7 @@ Transform:
   - {fileID: 236679870}
   - {fileID: 353561413}
   - {fileID: 910727514}
-  - {fileID: 460508406}
+  - {fileID: 7540774870215726768}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -283,6 +277,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6398455657530799673}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1075951241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1075951242}
+  m_Layer: 0
+  m_Name: battleObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1075951242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075951241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.37837324, y: 29.796076, z: 7.233003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833481042
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +373,12 @@ MonoBehaviour:
     - {fileID: 6398455657300668256, guid: 6e971ec447879b8439c6b1526773ca47, type: 3}
   - Objects:
     - {fileID: 27828072323191122, guid: ac5cb2c008d9b2c40a1c5e6fd528f88b, type: 3}
+  - Objects:
+    - {fileID: 2133825343456374062, guid: beb81d1569e63fb469b111a247c37f20, type: 3}
+    - {fileID: 1267766056671475601, guid: 326418994166d45448486d6a73d30f40, type: 3}
+  BattleStates: []
   stateObjectsRoot: {fileID: 663568106}
+  battleObjectsRoot: {fileID: 0}
   gameState: 0
 --- !u!1001 &3344683408922730732
 PrefabInstance:
@@ -441,18 +470,23 @@ PrefabInstance:
     - target: {fileID: 5101598833912481984, guid: 630cc89218eb361489b7082ed80dacc0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5101598833912481984, guid: 630cc89218eb361489b7082ed80dacc0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5101598833912481984, guid: 630cc89218eb361489b7082ed80dacc0,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5101598833912482012, guid: 630cc89218eb361489b7082ed80dacc0,
+        type: 3}
+      propertyPath: terrainMap
+      value: 
+      objectReference: {fileID: 2800000, guid: 48cdbdfca67f39342aa45124ce9024cd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 630cc89218eb361489b7082ed80dacc0, type: 3}
 --- !u!1001 &3541207715622026255
@@ -593,6 +627,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e971ec447879b8439c6b1526773ca47, type: 3}
+--- !u!4 &7540774870215726768 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5101598834360710748, guid: 630cc89218eb361489b7082ed80dacc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3344683408922730732}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9167561243463962418
 PrefabInstance:
   m_ObjectHideFlags: 0

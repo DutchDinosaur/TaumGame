@@ -28,7 +28,12 @@ public class GameManager : MonoBehaviour
     private GameState[] GameStates;
 
     [SerializeField]
+    private GameState[] BattleStates;
+
+    [SerializeField]
     private Transform stateObjectsRoot;
+    [SerializeField]
+    private Transform battleObjectsRoot;
 
     public int gameState;
 
@@ -37,16 +42,16 @@ public class GameManager : MonoBehaviour
         if (gameState != state)
         {
             gameState = state;
-            ClearState();
-            LoadState(state);
+            destroyChildren(stateObjectsRoot);
+            LoadState(state, GameStates, stateObjectsRoot);
             ResetCameraPosition();
         }
     }
 
-    private void ClearState()
+    private void destroyChildren(Transform obect)
     {
         List<GameObject> children = new List<GameObject>();
-        foreach (Transform child in stateObjectsRoot)
+        foreach (Transform child in obect)
         {
             children.Add(child.gameObject);
         }
@@ -56,26 +61,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void LoadState(int state)
+    private void LoadState(int state, GameState[] gameStates, Transform root)
     {
-        if (state <= GameStates.Length)
+        if (state <= gameStates.Length)
         {
-            foreach (GameObject Object in GameStates[state].Objects)
+            foreach (GameObject Object in gameStates[state].Objects)
             {
-                Instantiate(Object, stateObjectsRoot);
+                Instantiate(Object, root);
             }
 
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraController>().TrackingPosition = player.transform;
-            }
-
-            
+                SetCameraTarget(player.transform);
+            }            
         }
         else { Debug.LogError("This Gamestate does not exist"); }
+    }
 
-
+    private void SetCameraTarget(Transform target)
+    {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraController>().TrackingPosition = target;
     }
 
     private void ResetCameraPosition()
