@@ -32,7 +32,6 @@ public class playerController : MonoBehaviour
         transform.GetChild(0).LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
 
         animationStuff();
-
         interactWithStuff();
     }
 

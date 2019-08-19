@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     private int currentGameState;
     private int currentBattleState;
+    private bool inBattle;
 
     //public functions
     public void SetGameState(int state)
@@ -57,6 +58,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StartBattle()
+    {
+        if (inBattle == false)
+        {
+            inBattle = true;
+            //fancy graphical transition
+            stateObjectsRoot.gameObject.SetActive(false);
+            battleObjectsRoot.gameObject.SetActive(true);
+        }
+    }
+
+    public void EndBattle()
+    {
+        if (inBattle)
+        {
+            inBattle = false;
+            //fancy graphical transition
+            stateObjectsRoot.gameObject.SetActive(true);
+            battleObjectsRoot.gameObject.SetActive(false);
+        }
+    }
 
     //support functions
     private void destroyChildren(Transform obect)
