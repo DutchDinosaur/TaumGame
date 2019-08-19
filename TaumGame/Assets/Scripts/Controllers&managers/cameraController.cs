@@ -12,17 +12,15 @@ public class cameraController : MonoBehaviour
     [SerializeField]
     private float smoothTime = .5f;
 
-    void Update()
+    void LateUpdate()
     {
-        if (TrackingPosition == null)
+        if (TrackingPosition != null)
         {
-            return;
+            Vector3 desiredPos = TrackingPosition.transform.position + CamPosOffset;
+            Vector3 smoothedPosition = Vector3.SmoothDamp(GetComponent<Camera>().transform.position, desiredPos, ref camVelocity, smoothTime);
+            GetComponent<Camera>().transform.position = smoothedPosition;
+
+            GetComponent<Camera>().transform.LookAt(TrackingPosition.transform);
         }
-
-        Vector3 desiredPos = TrackingPosition.transform.position + CamPosOffset;
-        Vector3 smoothedPosition = Vector3.SmoothDamp(GetComponent<Camera>().transform.position, desiredPos, ref camVelocity, smoothTime);
-        GetComponent<Camera>().transform.position = smoothedPosition;
-
-        GetComponent<Camera>().transform.LookAt(TrackingPosition.transform);
     }
 }

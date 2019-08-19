@@ -45,7 +45,7 @@ public class playerController : MonoBehaviour
 
         }
 
-        rb.MovePosition(new Vector3(transform.position.x + inputManager.instance.movementDirection.x * currentSpeed * Time.deltaTime, transform.position.y + inputManager.instance.movementDirection.y * currentSpeed * Time.deltaTime, transform.position.z));
+        rb.MovePosition(new Vector3(transform.position.x + inputManager.instance.movementDirection.x * currentSpeed * Time.deltaTime, transform.position.y + inputManager.instance.movementDirection.y * currentSpeed * Time.deltaTime, transform.position.z)); // stuttery
     }
 
     void animationStuff()

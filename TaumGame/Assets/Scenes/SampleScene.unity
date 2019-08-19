@@ -379,7 +379,6 @@ MonoBehaviour:
   BattleStates: []
   stateObjectsRoot: {fileID: 663568106}
   battleObjectsRoot: {fileID: 0}
-  gameState: 0
 --- !u!1001 &3344683408922730732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -555,6 +554,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541207714991514674, guid: 326418994166d45448486d6a73d30f40,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541207714991514674, guid: 326418994166d45448486d6a73d30f40,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 902150960, guid: 326418994166d45448486d6a73d30f40, type: 3}
+      propertyPath: m_Size.y
+      value: 0.924562
+      objectReference: {fileID: 0}
+    - target: {fileID: 902150960, guid: 326418994166d45448486d6a73d30f40, type: 3}
+      propertyPath: m_Center.y
+      value: -0.06904912
+      objectReference: {fileID: 0}
+    - target: {fileID: 902150960, guid: 326418994166d45448486d6a73d30f40, type: 3}
+      propertyPath: m_Size.z
+      value: 1.03871
+      objectReference: {fileID: 0}
+    - target: {fileID: 902150960, guid: 326418994166d45448486d6a73d30f40, type: 3}
+      propertyPath: m_Center.z
+      value: 0.16027087
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541207715789530136, guid: 326418994166d45448486d6a73d30f40,
+        type: 3}
+      propertyPath: shadowZOffset
+      value: -0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326418994166d45448486d6a73d30f40, type: 3}

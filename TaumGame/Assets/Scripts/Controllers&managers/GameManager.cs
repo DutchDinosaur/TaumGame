@@ -5,14 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     void Awake()
     {
         if (instance != null)
         {
             return;
         }
-
         instance = this;
     }
 
@@ -21,8 +19,6 @@ public class GameManager : MonoBehaviour
     {
         public GameObject[] Objects;
     }
-
-    private GameState state;
 
     [SerializeField]
     private GameState[] GameStates;
@@ -35,19 +31,34 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Transform battleObjectsRoot;
 
-    public int gameState;
+    private int currentGameState;
+    private int currentBattleState;
 
+    //public functions
     public void SetGameState(int state)
     {
-        if (gameState != state)
+        if (currentGameState != state)
         {
-            gameState = state;
+            currentGameState = state;
             destroyChildren(stateObjectsRoot);
             LoadState(state, GameStates, stateObjectsRoot);
             ResetCameraPosition();
         }
     }
 
+    public void SetBattleState(int state)
+    {
+        if (currentBattleState != state)
+        {
+            currentGameState = state;
+            destroyChildren(battleObjectsRoot);
+            LoadState(state, BattleStates, battleObjectsRoot);
+            ResetCameraPosition();
+        }
+    }
+
+
+    //support functions
     private void destroyChildren(Transform obect)
     {
         List<GameObject> children = new List<GameObject>();
@@ -61,11 +72,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void LoadState(int state, GameState[] gameStates, Transform root)
+    private void LoadState(int stateInd, GameState[] States, Transform root) //replaces all children under the root object with the objects with thoose stored in the specified gamestate
     {
-        if (state <= gameStates.Length)
+        if (stateInd <= States.Length)
         {
-            foreach (GameObject Object in gameStates[state].Objects)
+            foreach (GameObject Object in States[stateInd].Objects)
             {
                 Instantiate(Object, root);
             }
@@ -79,7 +90,7 @@ public class GameManager : MonoBehaviour
         else { Debug.LogError("This Gamestate does not exist"); }
     }
 
-    private void SetCameraTarget(Transform target)
+    private void SetCameraTarget(Transform target) //resets camera target
     {
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraController>().TrackingPosition = target;
     }
